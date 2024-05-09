@@ -12,7 +12,7 @@ module.exports = {
       node: true,
       jest: true
    },
-   ignorePatterns: ['.eslintrc.js'],
+   ignorePatterns: ['.eslintrc.js', 'src/migrations/*'],
    rules: {
       '@typescript-eslint/no-unused-vars': 'warn',
       '@typescript-eslint/interface-name-prefix': 'off',

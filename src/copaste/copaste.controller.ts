@@ -1,18 +1,13 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Post, ValidationPipe } from '@nestjs/common';
 import { CopasteService } from './copaste.service';
+import { CreateCopasteDTO } from './copaste.dto';
 
 @Controller('copastes')
 export class CopasteController {
    constructor(private readonly copasteService: CopasteService) {}
 
-   @Get()
-   async getAll() {
-      return await this.copasteService.findAll();
-   }
-
    @Post()
-   async create(@Body('text') text: string) {
-      await this.copasteService.create(text);
-      return 'success';
+   async create(@Body(ValidationPipe) createCopasteDTO: CreateCopasteDTO) {
+      return await this.copasteService.create(createCopasteDTO);
    }
 }

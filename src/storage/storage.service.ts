@@ -16,4 +16,8 @@ export class StorageService {
          expirationDate
       };
    }
+
+   async signUrl(uuid: string) {
+      return this.storageClient.signByUUID(uuid);
+   }
 }
